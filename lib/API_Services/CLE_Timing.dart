@@ -65,10 +65,14 @@ class _CLE_TimingState extends State<CLE_Timing> {
       print("Raw data from API: $data");
 
       if (data is Map && data.containsKey('times')) {
-        List<dynamic> times = data['times']['L'];
+        // List<dynamic> times = data['times']['L'];
+        // for (var timeData in times) {
+        //   String timeStr = timeData['M']['time']['S'];
+        //   String id = timeData['M']['id']['S'];
+        List<dynamic> times = data['times'];
         for (var timeData in times) {
-          String timeStr = timeData['M']['time']['S'];
-          String id = timeData['M']['id']['S'];
+          String timeStr = timeData['time'];
+          String id = timeData['id'];
           final parts = timeStr.split(':');
           final hour = int.parse(parts[0]);
           final minute = int.parse(parts[1]);
@@ -101,10 +105,14 @@ class _CLE_TimingState extends State<CLE_Timing> {
       print("Raw data from API: $data");
 
       if (data is Map && data.containsKey('times')) {
-        List<dynamic> times = data['times']['L'];
+        // List<dynamic> times = data['times']['L'];
+        // for (var timeData in times) {
+        //   String timeStr = timeData['M']['time']['S'];
+        //   String id = timeData['M']['id']['S'];
+        List<dynamic> times = data['times'];
         for (var timeData in times) {
-          String timeStr = timeData['M']['time']['S'];
-          String id = timeData['M']['id']['S'];
+          String timeStr = timeData['time'];
+          String id = timeData['id'];
           final parts = timeStr.split(':');
           final hour = int.parse(parts[0]);
           final minute = int.parse(parts[1]);
@@ -317,33 +325,66 @@ class _CLE_TimingState extends State<CLE_Timing> {
     );
   }
 
+  // Future<void> submitForm(String info, String updateKey, String id, String newTime) async {
+  //   // final url = Uri.parse('https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
+  //   final url = Uri.parse('https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
+  //   final data = {
+  //     // 'info': info,
+  //     'info': {'S': info},
+  //     // 'updateKey': updateKey,
+  //     'updateKey': {'L': updateKey},
+  //     // 'id': id,
+  //     // 'newTime': newTime,
+  //     'id': {'S': id},
+  //     'newTime': {'S': newTime}
+  //
+  //     //
+  //   };
+  //   try {
+  //     final response = await http.post(url,
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: jsonEncode(data),
+  //     );
+  //     if (response.statusCode == 200) {
+  //       print('Success: ${response.body}');
+  //     } else {
+  //       print(data);
+  //       print('Failed: ${response.statusCode}');
+  //     }
+  //   } catch (e) {
+  //     print('Error: $e');
+  //   }
+  // }
+
   Future<void> submitForm(String info, String updateKey, String id, String newTime) async {
-    // final url = Uri.parse('https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
     final url = Uri.parse('https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
+
     final data = {
-      'info': info,
+      'info': info,  // Just send a string, not an object
       'updateKey': updateKey,
-      // 'id': id,
-      // 'newTime': newTime,
-      'id': {'S': id},               // Wrap 'id' in the 'S' structure for DynamoDB
-      'newTime': {'S': newTime}
+      'id': id,
+      'newTime': newTime
     };
+
     try {
-      final response = await http.post(url,
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      final response = await http.post(
+        url,
+        headers: {'Content-Type': 'application/json'},
         body: jsonEncode(data),
       );
+
       if (response.statusCode == 200) {
         print('Success: ${response.body}');
       } else {
-        print('Failed: ${response.statusCode}');
+        print('Failed: ${response.statusCode},${response.body}');
       }
     } catch (e) {
       print('Error: $e');
     }
   }
+
 
   Future<void> patchData(String info, String updateKey, String id, String newTime) async {
     // final url = Uri.parse('https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
@@ -351,10 +392,8 @@ class _CLE_TimingState extends State<CLE_Timing> {
     final body = jsonEncode({
       'info': info,
       'updateKey': updateKey,
-      // 'id': id,
-      // 'newTime': newTime,
-      'id': {'S': id},               // Wrap 'id' in the 'S' structure for DynamoDB
-      'newTime': {'S': newTime}
+      'id': id,
+      'newTime': newTime,
     });
 
     try {
@@ -384,8 +423,7 @@ class _CLE_TimingState extends State<CLE_Timing> {
     final body = jsonEncode({
       'info': info,
       'updateKey': updateKey,
-      // 'id': id,
-      'id': {'S': id},               // Wrap 'id' in the 'S' structure for DynamoDB
+      'id': id,
     });
 
     try {

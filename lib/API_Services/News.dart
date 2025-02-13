@@ -160,10 +160,7 @@ class _News_PageState extends State<News_Page> {
     final body = jsonEncode({
       'info': info,
       'updateKey': updateKey,
-      // 'news': news
-      'news': {
-        'S': news, // Wrap the news string in 'S'
-      },
+      'news': news
     });
 
     try {

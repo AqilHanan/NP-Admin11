@@ -54,7 +54,7 @@ class _KAP_TimingState extends State<KAP_Timing> {
         _isLoading = true;
       });
       KAP_Morning.clear();
-      var data = await _makeRequest('GET', 'https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/timing?info=KAP_MorningBus');
+      var data = await _makeRequest('GET', 'https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/timing?info=KAP_MorningBus');
       print("Raw data from API: $data");
 
       if (data is Map && data.containsKey('times')) {
@@ -89,7 +89,7 @@ class _KAP_TimingState extends State<KAP_Timing> {
         _isLoading = true;
       });
       KAP_Afternoon.clear();
-      var data = await _makeRequest('GET', 'https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/timing?info=KAP_AfternoonBus');
+      var data = await _makeRequest('GET', 'https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/timing?info=KAP_AfternoonBus');
       print("Raw data from API: $data");
 
       if (data is Map && data.containsKey('times')) {
@@ -310,7 +310,7 @@ class _KAP_TimingState extends State<KAP_Timing> {
   }
 
   Future<void> submitForm(String info, String updateKey, String id, String newTime) async {
-    final url = Uri.parse('https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
+    final url = Uri.parse('https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
     final data = {
       'info': info,
       'updateKey': updateKey,
@@ -335,7 +335,7 @@ class _KAP_TimingState extends State<KAP_Timing> {
   }
 
   Future<void> patchData(String info, String updateKey, String id, String newTime) async {
-    final url = Uri.parse('https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
+    final url = Uri.parse('https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
 
     final body = jsonEncode({
       'info': info,
@@ -363,7 +363,7 @@ class _KAP_TimingState extends State<KAP_Timing> {
   }
 
   Future<void> deleteData(String info, String updateKey, String id) async {
-    final url = Uri.parse('https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
+    final url = Uri.parse('https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
 
     final body = jsonEncode({
       'info': info,

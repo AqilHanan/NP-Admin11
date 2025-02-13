@@ -59,7 +59,7 @@ class _BusStopState extends State<BusStop> {
 
       var data = await _makeRequest(
           'GET',
-          'https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/busstop?info=BusStops'
+          'https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/busstop?info=BusStops'
       );
 
       print("Raw data from API: $data");
@@ -323,7 +323,7 @@ class _BusStopState extends State<BusStop> {
   }
 
   Future<void> submitStop(String stop, String lat, String lng) async {
-    final url = Uri.parse('https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/busstop');
+    final url = Uri.parse('https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/busstop');
     final data = {
       'info': 'BusStops',
       'updateKey': 'positions',
@@ -348,7 +348,7 @@ class _BusStopState extends State<BusStop> {
   }
 
   Future<void> patchData(String info, String updateKey, String id, String newlat, String newlang) async {
-    final url = Uri.parse('https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/busstop');
+    final url = Uri.parse('https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/busstop');
 
     final body = jsonEncode({
       'info': info,
@@ -376,7 +376,7 @@ class _BusStopState extends State<BusStop> {
   }
 
   Future<void> deleteData(String info, String updateKey, String id) async {
-    final url = Uri.parse('https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/busstop'); // Replace with your actual API endpoint
+    final url = Uri.parse('https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/busstop'); // Replace with your actual API endpoint
 
     final body = jsonEncode({
       'info': info,
