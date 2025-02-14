@@ -216,7 +216,7 @@ class _TableExportState extends State<TableExport> {
   Future<void> getBusStops() async {
     try {
       Response response = await get(Uri.parse(
-          'https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/busstop?info=BusStops'));
+          'https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/busstop?info=BusStops'));
       List <dynamic> data = jsonDecode(response.body);
 
       for (var item in data) {
@@ -249,10 +249,15 @@ class _TableExportState extends State<TableExport> {
   Future<void> scanKAP() async {
     try {
       final request1 = ModelQueries.list(KAPAfternoon.classType);
+      print("printing request1: ");
+      print(request1);
       final response1 = await Amplify.API
           .query(request: request1)
           .response;
+      print("printing response 1: ");
+      print(response1);
       final data1 = response1.data?.items;
+      print("raw kap afternoon: ${data1}");
 
       if (data1 != null) {
         // Transform items to a list of maps with only the necessary fields
