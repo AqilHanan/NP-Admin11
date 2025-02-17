@@ -142,7 +142,7 @@ class _NgeeAnnBusDataState extends State<NgeeAnnBusData> {
                               'KAP Timing',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 40,
+                                fontSize: 35,
                                 fontFamily: 'Tomorrow',
                               ),
                             ),
@@ -171,7 +171,7 @@ class _NgeeAnnBusDataState extends State<NgeeAnnBusData> {
                               'CLE Timing',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 40,
+                                fontSize: 35,
                                 fontFamily: 'Tomorrow',
                               ),
                             ),
@@ -200,7 +200,7 @@ class _NgeeAnnBusDataState extends State<NgeeAnnBusData> {
                               'Bus Stops',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 40,
+                                fontSize: 35,
                                 fontFamily: 'Tomorrow',
                               ),
                             ),
@@ -237,7 +237,7 @@ class _NgeeAnnBusDataState extends State<NgeeAnnBusData> {
                               'News ',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 40,
+                                fontSize: 35,
                                 fontFamily: 'Tomorrow',
                               ),
                             ),
@@ -267,7 +267,7 @@ class _NgeeAnnBusDataState extends State<NgeeAnnBusData> {
                               'Download',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 40,
+                                fontSize: 35,
                                 fontFamily: 'Tomorrow',
                               ),
                             ),
