@@ -63,7 +63,7 @@ class _News_PageState extends State<News_Page> {
       var data = await _makeRequest(
         'GET',
         // 'https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/news?info=News',
-        'https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/news?info=News'
+        'https://ihramr4p5b.execute-api.ap-southeast-2.amazonaws.com/prod/news?info=News'
       );
 
       print("Raw data from API: $data");
@@ -124,7 +124,7 @@ class _News_PageState extends State<News_Page> {
 
   Future<void> deleteData(String info, String updateKey) async {
     // final url = Uri.parse('https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/news');
-    final url = Uri.parse('https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/news');
+    final url = Uri.parse('https://ihramr4p5b.execute-api.ap-southeast-2.amazonaws.com/prod/news');
 
     final body = jsonEncode({
       'info': info,
@@ -155,7 +155,7 @@ class _News_PageState extends State<News_Page> {
 
   Future<void> patchData(String info, String updateKey, String news) async {
     // final url = Uri.parse('https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/news');
-    final url = Uri.parse('https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/news');
+    final url = Uri.parse('https://ihramr4p5b.execute-api.ap-southeast-2.amazonaws.com/prod/news');
 
     final body = jsonEncode({
       'info': info,

@@ -4,12 +4,12 @@ const amplifyconfig = '''{
     "api": {
         "plugins": {
             "awsAPIPlugin": {
-                "MooRide20Data": {
+                "UserAppAmplify": {
                     "endpointType": "GraphQL",
-                    "endpoint": "https://mgrhtiu6obbq5idvuf2xheiy3a.appsync-api.ap-southeast-2.amazonaws.com/graphql",
+                    "endpoint": "https://hhacvzubdrf2tgumbkn2t5okru.appsync-api.ap-southeast-2.amazonaws.com/graphql",
                     "region": "ap-southeast-2",
                     "authorizationType": "API_KEY",
-                    "apiKey": "da2-kdoyqvtr6bf6bkyjlzqqgctc2m"
+                    "apiKey": "da2-t4xenhnv4nfstecdv7krrcbm7q"
                 }
             }
         }
@@ -22,8 +22,8 @@ const amplifyconfig = '''{
         },
         "CognitoUserPool": {
           "Default": {
-            "PoolId": "ap-southeast-2_xwmal4Dlq",
-            "AppClientId": "3o3jep6ccpot5t26ia4aurojoq",
+            "PoolId": "ap-southeast-2_JkS3casmb",
+            "AppClientId": "2m4a3v1nr8nonc70triaj6vi1d",
             "Region": "ap-southeast-2"
           }
         },

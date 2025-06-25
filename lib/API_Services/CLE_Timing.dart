@@ -60,7 +60,7 @@ class _CLE_TimingState extends State<CLE_Timing> {
         _isLoading = true;
       });
       CLE_Morning.clear(); // Clear existing data
-      var data = await _makeRequest('GET', 'https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/timing?info=CLE_MorningBus');
+      var data = await _makeRequest('GET', 'https://ihramr4p5b.execute-api.ap-southeast-2.amazonaws.com/prod/timing?info=CLE_MorningBus');
       // var data = await _makeRequest('GET', 'https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/timing?info=CLE_MorningBus');
       print("Raw data from API: $data");
 
@@ -100,8 +100,9 @@ class _CLE_TimingState extends State<CLE_Timing> {
         _isLoading = true;
       });
       CLE_Afternoon.clear(); // Clear existing data
-      // var data = await _makeRequest('GET', 'https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/timing?info=CLE_AfternoonBus');
-      var data = await _makeRequest('GET', 'https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/timing?info=CLE_AfternoonBus');
+      var data = await _makeRequest('GET', 'https://ihramr4p5b.execute-api.ap-southeast-2.amazonaws.com/prod/timing?info=CLE_AfternoonBus');
+      // var data = await _makeRequest('GET', 'https://ihramr4p5b.execute-api.ap-southeast-2.amazonaws.com/prod'
+      //     '/timing?info=CLE_AfternoonBus');
       print("Raw data from API: $data");
 
       if (data is Map && data.containsKey('times')) {
@@ -359,7 +360,7 @@ class _CLE_TimingState extends State<CLE_Timing> {
   // }
 
   Future<void> submitForm(String info, String updateKey, String id, String newTime) async {
-    final url = Uri.parse('https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
+    final url = Uri.parse('https://ihramr4p5b.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
 
     final data = {
       'info': info,  // Just send a string, not an object
@@ -388,7 +389,7 @@ class _CLE_TimingState extends State<CLE_Timing> {
 
   Future<void> patchData(String info, String updateKey, String id, String newTime) async {
     // final url = Uri.parse('https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
-    final url = Uri.parse('https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
+    final url = Uri.parse('https://ihramr4p5b.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
     final body = jsonEncode({
       'info': info,
       'updateKey': updateKey,
@@ -418,7 +419,7 @@ class _CLE_TimingState extends State<CLE_Timing> {
 
   Future<void> deleteData(String info, String updateKey, String id) async {
     // final url = Uri.parse('https://lrjwl7ccg1.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
-    final url = Uri.parse('https://6f11dyznc2.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
+    final url = Uri.parse('https://ihramr4p5b.execute-api.ap-southeast-2.amazonaws.com/prod/timing');
 
     final body = jsonEncode({
       'info': info,
